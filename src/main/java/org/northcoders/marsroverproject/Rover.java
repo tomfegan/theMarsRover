@@ -1,6 +1,8 @@
 package org.northcoders.marsroverproject;
 
 public class Rover {
+    // could I make a stackable interface that Rover implements so multiple Rovers
+    // could occupy the same position?
     private boolean hasArms;
     private boolean hasCamera;
 

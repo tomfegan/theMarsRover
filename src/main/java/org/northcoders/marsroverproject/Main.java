@@ -1,48 +1,19 @@
 package org.northcoders.marsroverproject;
 
-import java.util.*;
+import org.northcoders.parsingclasses.UserInput;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.print("Enter number of rows: ");
-        Scanner userInput = new Scanner(System.in);
-        int rows = userInput.nextInt();
-        System.out.print("Enter number of columns: ");
-        int columns = userInput.nextInt();
-        userInput.close();
+        UserInput userRows = new UserInput();
+        int rows = userRows.getNumberOfRowsFromUser();
+        int columns = userRows.getNumberOfColumnsFromUser();
+        PlateauSize grid = new PlateauSize(rows, columns);
+        grid.gridMaker(rows, columns);
 
-//        int rows = 2;
-//        int columns = 2;
-        List<List<List<Integer>>> gridOfCoordinates = new ArrayList<>();
+        System.out.println(userRows.getRoverStartingPositionFromUser());
+        System.out.println(userRows.getDirectionRoverIsFacingFromUser());
+        System.out.println(userRows.getMovementInstructionsFromUser());
 
-        for (int y = rows; y >= 0; y--) {
-            List<List<Integer>> rowOfCoordinates = new ArrayList<>();
-            for (int x = 0; x <= columns; x++) {
-                List<Integer> singleCoordinate = new ArrayList<>();
-                singleCoordinate.add(x);
-                singleCoordinate.add(y);
-                rowOfCoordinates.add(singleCoordinate);
-//                System.out.println("Loop " + x + " outputs" + rowOfCoordinates);
-            }
-//            gridOfCoordinates.add(rowOfCoordinates);
-//            System.out.println("one run of loop complete");
-            gridOfCoordinates.add(rowOfCoordinates);
-
-        }
-//        gridOfCoordinates.add(rowOfCoordinates);
-        System.out.println(gridOfCoordinates);
     }
 }
-// [
-//
-// [ [0, 1], [1, 1] ],
-// [ [0, 0], [1, 0]]
-//
-// ]
-
-
-//    }
-//
-//
-//}
