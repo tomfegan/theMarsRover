@@ -29,15 +29,31 @@ public class UserInput {
     }
     public List<Integer> getRoverStartingPositionFromUser() {
         List<Integer> startingCoordinates = new ArrayList<>();
-        // How do I restrict input to the board size?
-        System.out.print("Where would you like to place the Rover: please provide the x-coordinate: ");
-//        Scanner userInput = new Scanner(System.in);
-        startingCoordinates.add(userInput.nextInt());
+//        System.out.print("Where would you like to place the Rover: please provide the x-coordinate: ");
+//        startingCoordinates.add(userInput.nextInt());
+//        System.out.print("Where would you like to place the Rover: please provide the y-coordinate: ");
+//        startingCoordinates.add(userInput.nextInt());
 
         // How do I restrict input to the board size?
+
+        System.out.print("Where would you like to place the Rover: please provide the x-coordinate: ");
+        String startingXCoordinate = userInput.nextLine();
+
+        while (!startingXCoordinate.matches("\\d")) {
+            System.out.print("Please only enter a number to indicate the vertical plane you want to place the rover at the start: ");
+            startingXCoordinate = userInput.nextLine();
+        }
+        startingCoordinates.add(stringParser.parseInput(startingXCoordinate));
+
         System.out.print("Where would you like to place the Rover: please provide the y-coordinate: ");
-        startingCoordinates.add(userInput.nextInt());
-//        userInput.close();
+        String startingYCoordinate = userInput.nextLine();
+
+        while (!startingYCoordinate.matches("\\d")) {
+            System.out.print("Please only enter a number to indicate the horizontal plane you want to place the rover at the start: ");
+            startingYCoordinate = userInput.nextLine();
+        }
+        startingCoordinates.add(stringParser.parseInput(startingYCoordinate));
+
         return startingCoordinates;
     }
 
