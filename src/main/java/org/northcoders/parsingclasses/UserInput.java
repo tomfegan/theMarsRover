@@ -1,5 +1,7 @@
 package org.northcoders.parsingclasses;
 
+import org.northcoders.marsroverproject.Position;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.Scanner;
 public class UserInput {
     Scanner userInput = new Scanner(System.in);
     InputParser stringParser = new InputParser();
+    Position position = new Position();
 
     public int getNumberOfRowsFromUser() {
         System.out.print("Enter number of rows: ");
@@ -29,31 +32,28 @@ public class UserInput {
     }
     public List<Integer> getRoverStartingPositionFromUser() {
         List<Integer> startingCoordinates = new ArrayList<>();
-//        System.out.print("Where would you like to place the Rover: please provide the x-coordinate: ");
-//        startingCoordinates.add(userInput.nextInt());
-//        System.out.print("Where would you like to place the Rover: please provide the y-coordinate: ");
-//        startingCoordinates.add(userInput.nextInt());
-
-        // How do I restrict input to the board size?
-
         System.out.print("Where would you like to place the Rover: please provide the x-coordinate: ");
         String startingXCoordinate = userInput.nextLine();
-
         while (!startingXCoordinate.matches("\\d")) {
             System.out.print("Please only enter a number to indicate the vertical plane you want to place the rover at the start: ");
             startingXCoordinate = userInput.nextLine();
         }
+
         startingCoordinates.add(stringParser.parseInput(startingXCoordinate));
 
         System.out.print("Where would you like to place the Rover: please provide the y-coordinate: ");
         String startingYCoordinate = userInput.nextLine();
-
         while (!startingYCoordinate.matches("\\d")) {
             System.out.print("Please only enter a number to indicate the horizontal plane you want to place the rover at the start: ");
             startingYCoordinate = userInput.nextLine();
         }
         startingCoordinates.add(stringParser.parseInput(startingYCoordinate));
 
+        // How do I restrict input to the board size?
+//        if (position.isStartingPositionAvailable(startingCoordinates)) {
+//
+//        }
+//
         return startingCoordinates;
     }
 
@@ -73,18 +73,11 @@ public class UserInput {
 
     public char[] getMovementInstructionsFromUser() {
         System.out.print("Please tell me how you want Rover to move (L turns Rover 90 degrees left/R turns Rover 90 degrees right/M moves Rover forward): ");
-//        Scanner userInput = new Scanner(System.in);
         String movementInstructions = userInput.next();
-//        userInput.close();
-        char[] instructionsArray = movementInstructions.toCharArray();
-
-        for (Character letter : instructionsArray) {
-            if (letter != 'L' && letter != 'M' && letter != 'R') {
-                System.out.print("Please tell me how you want Rover to move (L turns Rover 90 degrees left/R turns Rover 90 degrees right/M moves Rover forward): ");
-                instructionsArray = userInput.next().toCharArray();
-                // need this to loop to start of for loop if wrong input for 2nd time
-            }
+        while (!movementInstructions.matches("[LRM]+")) {
+            System.out.print("Instructions for how you want Rover to move should only include L (turns Rover 90 degrees left), R (turns Rover 90 degrees right) and/or M (moves Rover forward): ");
+            movementInstructions = userInput.next();
         }
-        return instructionsArray;
+        return movementInstructions.toCharArray();
     }
 }

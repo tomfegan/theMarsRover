@@ -13,13 +13,16 @@ public class Position {
 //        this.facing = facing;
 //    }
 
-    public boolean isStartingXCoordinateAvailable(Position proposedPosition, PlateauSize gridSize) {
-        return gridSize.getRows() >= proposedPosition.y;
+    public boolean isStartingPositionAvailable(Position proposedPosition, PlateauSize gridSize) {
+        return (gridSize.getRows() >= proposedPosition.y) && (gridSize.getColumns() >= proposedPosition.x);
     }
-
-    public boolean isStartingYCoordinateAvailable(Position proposedPosition, PlateauSize gridSize) {
-        return gridSize.getColumns() >= proposedPosition.x;
-    }
+//    public boolean isStartingXCoordinateAvailable(Position proposedPosition, PlateauSize gridSize) {
+//        return gridSize.getRows() >= proposedPosition.y;
+//    }
+//
+//    public boolean isStartingYCoordinateAvailable(Position proposedPosition, PlateauSize gridSize) {
+//        return gridSize.getColumns() >= proposedPosition.x;
+//    }
 
 //    public boolean isPositionAfterMoveAvailable(Position currentPosition, Position proposedPosition, PlateauSize gridSize) {
 //
