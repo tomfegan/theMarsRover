@@ -1,13 +1,11 @@
 package org.northcoders.parsingclasses;
 
+import org.northcoders.marsroverproject.PlateauSize;
 import org.northcoders.marsroverproject.Position;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class UserInput {
+public class UserInputValidation {
     Scanner userInput = new Scanner(System.in);
     InputParser stringParser = new InputParser();
     Position position = new Position();
@@ -21,6 +19,7 @@ public class UserInput {
         }
         return stringParser.parseInput(rowsInString);
     }
+
     public int getNumberOfColumnsFromUser() throws InputMismatchException {
         System.out.print("Enter number of columns: ");
         String columnsInString = userInput.nextLine();
@@ -30,41 +29,64 @@ public class UserInput {
         }
         return stringParser.parseInput(columnsInString);
     }
-    public List<Integer> getRoverStartingPositionFromUser() {
-        List<Integer> startingCoordinates = new ArrayList<>();
-        System.out.print("Where would you like to place the Rover: please provide the x-coordinate: ");
+
+    public int getRoverStartingCoordinateFromUser(String coordinate, PlateauSize grid) {
+//        Position startingPosition = new Position();
+        System.out.print("Where would you like to place the Rover: please provide the " + coordinate + "-coordinate: ");
         String startingXCoordinate = userInput.nextLine();
         while (!startingXCoordinate.matches("\\d")) {
             System.out.print("Please only enter a number to indicate the vertical plane you want to place the rover at the start: ");
             startingXCoordinate = userInput.nextLine();
         }
+        int validStaringCoordinate = stringParser.parseInput(startingXCoordinate);
 
-        startingCoordinates.add(stringParser.parseInput(startingXCoordinate));
-
-        System.out.print("Where would you like to place the Rover: please provide the y-coordinate: ");
-        String startingYCoordinate = userInput.nextLine();
-        while (!startingYCoordinate.matches("\\d")) {
-            System.out.print("Please only enter a number to indicate the horizontal plane you want to place the rover at the start: ");
-            startingYCoordinate = userInput.nextLine();
+        if (isStartingPositionAvailable(grid, validStaringCoordinate)) {
+            return validStaringCoordinate;
+        } else {
+            System.out.println("-1");
+            return -1;
         }
-        startingCoordinates.add(stringParser.parseInput(startingYCoordinate));
 
-        // How do I restrict input to the board size?
-//        if (position.isStartingPositionAvailable(startingCoordinates)) {
-//
+//        return validStaringCoordinate;
+//        if (coordinate.equalsIgnoreCase("x")) {
+//            startingPosition.setX(validStaringCoordinate);
+//        } else if (coordinate.equalsIgnoreCase("y")) {
+//            startingPosition.setY(validStaringCoordinate);
 //        }
+//        while (validStaringCoordinate > grid.getRows() || validStaringCoordinate > grid.getColumns()) {
+//            getRoverStartingCoordinateFromUser("x or y", grid);
+//        }
+//        System.out.println("In bounds");
+//        return startingPosition;
+
+    }
+
+    public boolean isStartingPositionAvailable(PlateauSize grid, int coordinate) {
+
+        while (coordinate > grid.getRows() || coordinate > grid.getColumns()) {
+            getRoverStartingCoordinateFromUser("x or y", grid);
+        }
+        System.out.println("In bounds");
+        return true;
+
+//        List<Integer> proposedStartPosition = getRoverStartingPositionFromUser();
+//        List<List<List<Integer>>> availableStartingPositions = plateauGrid.makePlateau();
+//        List<Integer> xYCoordinate = new ArrayList<>();
+//        xYCoordinate.add(position.getX());
+//        xYCoordinate.add(position.getY());
 //
-        return startingCoordinates;
+//        List<List<List<Integer>>> plateauGrid =
+//
+//        while (!plateauGrid.contains(xYCoordinate)) {
+//            getRoverStartingPositionFromUser();
+//        }
+//        return true;
     }
 
     public String getDirectionRoverIsFacingFromUser() { // should I add a Scnner parameter?
         System.out.print("Do you want Rover to be facing North(N), South (S), East(E) or West(W)? ");
-//        Scanner userInput = new Scanner(System.in);
         String directionFacing = userInput.next();
-//        userInput.close();
-
-        while (!directionFacing.equals("E") && !directionFacing.equals("W") &&
-                !directionFacing.equals("N") && !directionFacing.equals("S")) {
+        while (directionFacing.matches("[^EWNS]")) {
             System.out.print("Please input N, S, E or W (case-sensitive) to indicate which direction Rover will be facing: ");
             directionFacing = userInput.next();
         }
@@ -74,10 +96,10 @@ public class UserInput {
     public char[] getMovementInstructionsFromUser() {
         System.out.print("Please tell me how you want Rover to move (L turns Rover 90 degrees left/R turns Rover 90 degrees right/M moves Rover forward): ");
         String movementInstructions = userInput.next();
-        while (!movementInstructions.matches("[LRM]+")) {
+        while (!movementInstructions.matches("[LRMlrm]+")) {
             System.out.print("Instructions for how you want Rover to move should only include L (turns Rover 90 degrees left), R (turns Rover 90 degrees right) and/or M (moves Rover forward): ");
             movementInstructions = userInput.next();
         }
-        return movementInstructions.toCharArray();
+        return movementInstructions.toUpperCase().toCharArray();
     }
 }

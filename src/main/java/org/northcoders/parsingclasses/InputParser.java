@@ -16,7 +16,7 @@ public class InputParser {
     public Position parseInstructionInputFromUser(Position currentPosition) {
         // Should this method take the third user input as an argument and output a new Position object with the position after the move?
         Position nextPosition = new Position();
-        UserInput movementInstructions = new UserInput();
+        UserInputValidation movementInstructions = new UserInputValidation();
         char[] userInstructions = movementInstructions.getMovementInstructionsFromUser();
 
         // Need to use enums, CompassDirection & Instructions here
