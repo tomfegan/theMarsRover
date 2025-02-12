@@ -1,31 +1,11 @@
 package org.northcoders.marsroverproject;
 
-public class PlateauSize {
-    private int rows;
-    private int columns;
-    public PlateauSize(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
+public record PlateauSize(int rows, int columns) {
+    /* Grid size is final and using a record (instead of a class) enforces its immutability (e.g., no setters)
+    and reduces boilerplate for easier reading and maintenance */
+
+    @Override
+    public String toString() {
+        return String.format("%d by %d plateau", rows, columns);
     }
-    public int getRows() {
-        return rows;
-    }
-    public int getColumns() {
-        return columns;
-    }
-//    public List<List<List<Integer>>> makePlateau() {
-//        List<List<List<Integer>>> gridOfCoordinates = new ArrayList<>();
-//        for (int y = this.rows; y >= 0; y--) {
-//            List<List<Integer>> rowOfCoordinates = new ArrayList<>();
-//            for (int x = 0; x <= this.columns; x++) {
-//                List<Integer> singleCoordinate = new ArrayList<>();
-//                singleCoordinate.add(x);
-//                singleCoordinate.add(y);
-//                rowOfCoordinates.add(singleCoordinate);
-//            }
-//            gridOfCoordinates.add(rowOfCoordinates);
-//        }
-//        System.out.println(gridOfCoordinates);
-//        return gridOfCoordinates;
-//    }
 }

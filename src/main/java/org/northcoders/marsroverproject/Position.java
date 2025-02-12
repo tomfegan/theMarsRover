@@ -1,10 +1,13 @@
 package org.northcoders.marsroverproject;
 
 public class Position {
+    /* decided not to make Position an inner class of Rover to make code extensible as other vehicles could be placed on the moon in future -
+    keeps code DRY (don't repeat yourself) */
     private int x;
     private int y;
-    private String facing;
-    public Position(int x, int y, String facing) {
+//    private String facing;
+    private Direction facing;
+    public Position(int x, int y, Direction facing) {
         this.x = x;
         this.y = y;
         this.facing = facing;
@@ -15,45 +18,60 @@ public class Position {
     public int getY() {
         return y;
     }
-    public String getFacing() {
+    public Direction getFacing() {
         return facing;
     }
-    public Position changePositionOnGrid(char[] moveInstructions, PlateauSize grid) {
+
+    public void setFacing(Direction facing) {
+        this.facing = facing;
+    }
+    public void setX(int x) {
+        this.x = x;
+    }
+    public void setY(int y) {
+        this.y = y;
+    }
+    public void changePositionOnGrid(char[] moveInstructions, PlateauSize grid) {
+
         for (Character instruction : moveInstructions) {
-            if (this.facing.equalsIgnoreCase("N") && instruction.equals('L')) {
-                this.facing = "W";
-            } else if (this.facing.equalsIgnoreCase("S") && instruction.equals('L')) {
-                this.facing = "E";
-            } else if (this.facing.equalsIgnoreCase("E") && instruction.equals('L')) {
-                this.facing = "N";
-            } else if (this.facing.equalsIgnoreCase("W") && instruction.equals('L')) {
-                this.facing = "S";
-            } else if (this.facing.equalsIgnoreCase("N") && instruction.equals('R')) {
-                this.facing = "E";
-            } else if (this.facing.equalsIgnoreCase("S") && instruction.equals('R')) {
-                this.facing = "W";
-            } else if (this.facing.equalsIgnoreCase("E") && instruction.equals('R')) {
-                this.facing = "S";
-            } else if (this.facing.equalsIgnoreCase("W") && instruction.equals('R')) {
-                this.facing = "N";
-            } else if (instruction == 'M' && this.facing.equalsIgnoreCase("N")) {
-                if (this.y + 1 <= grid.getRows() && this.y + 1 >= 0) {
+            if (this.facing.equals(Direction.NORTH) && instruction.equals('L')) {
+                this.facing = Direction.WEST;
+            } else if (this.facing.equals(Direction.SOUTH) && instruction.equals('L')) {
+                this.facing = Direction.EAST;
+            } else if (this.facing.equals(Direction.EAST) && instruction.equals('L')) {
+                this.facing = Direction.NORTH;
+            } else if (this.facing.equals(Direction.WEST) && instruction.equals('L')) {
+                this.facing = Direction.SOUTH;
+            } else if (this.facing.equals(Direction.NORTH) && instruction.equals('R')) {
+                this.facing = Direction.EAST;
+            } else if (this.facing.equals(Direction.SOUTH) && instruction.equals('R')) {
+                this.facing = Direction.WEST;
+            } else if (this.facing.equals(Direction.EAST) && instruction.equals('R')) {
+                this.facing = Direction.SOUTH;
+            } else if (this.facing.equals(Direction.WEST) && instruction.equals('R')) {
+                this.facing = Direction.NORTH;
+            } else if (instruction == 'M' && this.facing.equals(Direction.NORTH)) {
+                if (this.y + 1 <= grid.rows() && this.y + 1 >= 0) {
                     this.y += 1;
                 }
-            } else if (instruction == 'M' && this.facing.equalsIgnoreCase("S")) {
-                if (this.y - 1 <= grid.getRows() && this.y - 1 >= 0) {
+            } else if (instruction == 'M' && this.facing.equals(Direction.SOUTH)) {
+                if (this.y - 1 <= grid.rows() && this.y - 1 >= 0) {
                     this.y -= 1;
                 }
-            } else if (instruction == 'M' && this.facing.equalsIgnoreCase("E")) {
-                if (this.x + 1 <= grid.getColumns() && this.x + 1 >= 0) {
+            } else if (instruction == 'M' && this.facing.equals(Direction.EAST)) {
+                if (this.x + 1 <= grid.columns() && this.x + 1 >= 0) {
                     this.x += 1;
                 }
-            } else if (instruction == 'M' && this.facing.equalsIgnoreCase("W")) {
-                if (this.x - 1 <= grid.getColumns() && this.x - 1 >= 0) {
+            } else if (instruction == 'M' && this.facing.equals(Direction.WEST)) {
+                if (this.x - 1 <= grid.columns() && this.x - 1 >= 0) {
                     this.x -= 1;
                 }
             }
         }
-        return new Position(this.x, this.y, this.facing);
+        System.out.println(this);
+    }
+    @Override
+    public String toString() {
+        return String.format("Mars Rover is now located at %d,%d and is facing %s%n", x, y, facing);
     }
 }

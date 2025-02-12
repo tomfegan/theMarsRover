@@ -23,6 +23,6 @@ class UserInputValidationTest {
     }
 
     @Test
-    void getPlateauBoundariesFromUser() {
+    void getPlateauBoundaryFromUser() {
     }
 }
