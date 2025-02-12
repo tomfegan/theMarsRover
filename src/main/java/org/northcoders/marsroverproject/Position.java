@@ -1,38 +1,17 @@
 package org.northcoders.marsroverproject;
 
 public class Position {
-    /* decided not to make Position an inner class of Rover to make code extensible as other vehicles could be placed on the moon in future -
+    /* decided not to make Position an inner class of Rover to make code extensible as other vehicles could be placed on Mars in future -
     keeps code DRY (don't repeat yourself) */
     private int x;
     private int y;
-//    private String facing;
     private Direction facing;
     public Position(int x, int y, Direction facing) {
         this.x = x;
         this.y = y;
         this.facing = facing;
     }
-    public int getX() {
-        return x;
-    }
-    public int getY() {
-        return y;
-    }
-    public Direction getFacing() {
-        return facing;
-    }
-
-    public void setFacing(Direction facing) {
-        this.facing = facing;
-    }
-    public void setX(int x) {
-        this.x = x;
-    }
-    public void setY(int y) {
-        this.y = y;
-    }
     public void changePositionOnGrid(char[] moveInstructions, PlateauSize grid) {
-
         for (Character instruction : moveInstructions) {
             if (this.facing.equals(Direction.NORTH) && instruction.equals('L')) {
                 this.facing = Direction.WEST;
@@ -72,6 +51,6 @@ public class Position {
     }
     @Override
     public String toString() {
-        return String.format("Mars Rover is now located at %d,%d and is facing %s%n", x, y, facing);
+        return String.format("Mars Rover is now located at %d,%d and facing %s%n", x, y, facing);
     }
 }

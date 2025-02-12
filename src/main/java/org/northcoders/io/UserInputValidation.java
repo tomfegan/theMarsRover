@@ -23,23 +23,22 @@ public class UserInputValidation {
         return Integer.parseInt(rowsInString);
     }
     public static Position getValidRoverStartingPositionFromUser(Scanner sc, PlateauSize userGrid) {
-        UserInputValidation ui = new UserInputValidation();
         System.out.print("Where would you like to place the Rover on the plateau: please provide the x-coordinate first: ");
-        int x = ui.getRoverStartingCoordinateFromUser(sc);
-        x = ui.isXCoordinateWithinPlateau(userGrid, x);
+        int x = getRoverStartingCoordinateFromUser(sc);
+        x = isXCoordinateWithinPlateau(userGrid, x);
 
         System.out.print("Where would you like to place the Rover on the plateau: please provide the y-coordinate now: ");
-        int y = ui.getRoverStartingCoordinateFromUser(sc);
-        y = ui.isYCoordinateWithinPlateau(userGrid, y);
+        int y = getRoverStartingCoordinateFromUser(sc);
+        y = isYCoordinateWithinPlateau(userGrid, y);
 
         System.out.print("Do you want Rover to be facing North(N), South (S), East(E) or West(W)? ");
-        Direction facingDirection = ui.getDirectionRoverIsFacingFromUser(sc);
+        Direction facingDirection = getDirectionRoverIsFacingFromUser(sc);
 
         Position start = new Position(x, y, facingDirection);
         System.out.println(start);
         return start;
     }
-    private int getRoverStartingCoordinateFromUser(Scanner sc) {
+    private static int getRoverStartingCoordinateFromUser(Scanner sc) {
         String singleCoordinate = sc.nextLine();
         while (!singleCoordinate.matches("\\d+")) {
             System.out.print("Please only enter a positive number within the grid to indicate where you want to place the Rover at the start: ");
@@ -47,7 +46,7 @@ public class UserInputValidation {
         }
             return Integer.parseInt(singleCoordinate);
     }
-    private Direction getDirectionRoverIsFacingFromUser(Scanner sc) {
+    private static Direction getDirectionRoverIsFacingFromUser(Scanner sc) {
         String directionFacing = sc.next();
         while (!directionFacing.matches("[ewnsEWNS]{1}")) {
             System.out.print("Please input N, S, E or W to indicate which direction Rover will be facing: ");
@@ -61,7 +60,7 @@ public class UserInputValidation {
             default -> null;
         };
     }
-    private int isXCoordinateWithinPlateau(PlateauSize grid, int coordinate) {
+    private static int isXCoordinateWithinPlateau(PlateauSize grid, int coordinate) {
         while (coordinate > grid.columns()) {
             System.out.println("Out of bounds - please try again");
             coordinate = getRoverStartingCoordinateFromUser( new Scanner(System.in));
@@ -69,7 +68,7 @@ public class UserInputValidation {
         System.out.println("In bounds");
         return coordinate;
     }
-    private int isYCoordinateWithinPlateau(PlateauSize grid, int coordinate) {
+    private static int isYCoordinateWithinPlateau(PlateauSize grid, int coordinate) {
         while (coordinate > grid.rows()) {
             System.out.println("Out of bounds - please try again");
             coordinate = getRoverStartingCoordinateFromUser( new Scanner(System.in));

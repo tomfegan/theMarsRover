@@ -13,13 +13,13 @@ public class Main {
         Rover rover = new Rover(validUserStartingPosition);
         validUserStartingPosition.changePositionOnGrid(UserInputValidation.getMovementInstructionsFromUser(sc), userGrid);
         rover.moveRover();
-        System.out.println("Press Y to move the Rover again or Q to quit the application");
+        System.out.println("Press Q to quit the application or any other key to make another move");
         String action = sc.next().toLowerCase();
 
         while (!Objects.equals(action, "q")) {
             validUserStartingPosition.changePositionOnGrid(UserInputValidation.getMovementInstructionsFromUser(sc), userGrid);
             rover.moveRover();
-            System.out.println("Press Y to move the Rover again or Q to quit the application");
+            System.out.println("Press Q to quit the application or any other key to make another move");
             action = sc.next().toLowerCase();
         }
     }
