@@ -1,26 +1,14 @@
 package org.northcoders.marsroverproject;
 
-import org.northcoders.io.UserInputValidation;
-
-import java.util.Objects;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        PlateauSize userGrid = UserInputValidation.getPlateauSizeFromUser(sc);
-        Position validUserStartingPosition = UserInputValidation.getValidRoverStartingPositionFromUser(sc, userGrid);
-        Rover rover = new Rover(validUserStartingPosition);
-        validUserStartingPosition.changePositionOnGrid(UserInputValidation.getMovementInstructionsFromUser(sc), userGrid);
-        rover.moveRover();
-        System.out.println("Press Q to quit the application or any other key to make another move");
-        String action = sc.next().toLowerCase();
-
-        while (!Objects.equals(action, "q")) {
-            validUserStartingPosition.changePositionOnGrid(UserInputValidation.getMovementInstructionsFromUser(sc), userGrid);
-            rover.moveRover();
-            System.out.println("Press Q to quit the application or any other key to make another move");
-            action = sc.next().toLowerCase();
-        }
+        User user = new User("Sam", new Scanner(System.in));
+        Asteroid asteroid = new Asteroid(new Random());
+        Game game = new Game(user, asteroid);
+        game.playGame();
     }
+
 }
