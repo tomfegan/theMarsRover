@@ -5,11 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48f4c63a-cf6d-49ce-9d70-0d8490412888" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Asteroid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/AsteroidTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/io/UserInputValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/io/UserInputValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/io/UserInputValidation.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/PlateauSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/PlateauSize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Position.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Rover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Rover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/io/UserInputValidationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/PositionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/PositionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/RoverTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +30,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -56,8 +67,54 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsteroidTest.assignRandomPositionWithinPlateauForAsteroid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AsteroidTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.didAsteroidHitRover.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.generateLiveGameBoard.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheDidAsteroidHitRoverMethodReturnsFalseWhenTheAsteroidIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheDidAsteroidHitRoverMethodReturnsFalseWhenTheRoverAndAsteroidHaveDifferentXYPositions.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheDidAsteroidHitRoverMethodReturnsFalseWhenTheRoverIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheDidAsteroidHitRoverMethodReturnsTrueWhenTheRoverAndAsteroidShareTheSameXYPosition.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGamePlateauReturnedByTheGenerateLiveGameBoardMethodDoesNotContainAnAsteroidWhenAsteroidIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGameBoardMethodReturnsAnAsteroidAndAUpwardsArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingEast.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGameBoardMethodReturnsAnAsteroidAndAUpwardsArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingNorth.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGameBoardMethodReturnsAnAsteroidAndAUpwardsArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingSouth.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGameBoardMethodReturnsDotsWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateau.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGameBoardMethodReturnsNullIfPlateauSizeIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGameBoardMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfAsteroidPositionIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfPlateauSizeIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfPlateauSizeOfDotsIfUserAndAsteroidAreNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfRoverPositionIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsFalseWhenThePlateauSizeIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsFalseWhenTheRoverIsNotPositionedOnThePlateauPerimeter.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsFalseWhenTheRoverOrPlateauAreNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsFalseWhenTheRoverPositionIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsTrueWhenTheRoverIsPositionedOnThePlateauPerimeter.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainARoverIfItIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainAnAsteroidIfItIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerDecisionsTest.getPlateauSizeFromUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerDecisionsTest.testThatTheGetPlateauSizeFromUserMethodReturnsAPlateauSize5x5WhenPlayerFirstEntersNonPositiveIntegersForRowsAndColumnsAndThenEnters5.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PositionTest.changePositionOnGrid.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PositionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PositionTest.testThatTheChangePositionOnGridMethodDoesNotChangePositionIfInstructionsAreNotValid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PositionTest.testThatTheChangePositionOnGridMethodDoesNotChangePositionIfInstructionsAreNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PositionTest.testThatTheChangePositionOnGridMethodDoesNotChangePositionIfPlateauSizeIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PositionTest.testThatTheChangePositionOnGridMethodFollowsValidInstructionsAndUpdatesTheXYAndFacingFieldsForThePosition.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PositionTest.testThatTheChangePositionOnGridMethodFollowsValidInstructionsAndUpdatesTheXYAndFacingFieldsForThePositionButRemainsWithinTheGrid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.chooseAValidStartingPositionForRoverOnPlateau.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.supplyMovementInstructionsForTheRover.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.testThatTheChooseAValidStartingPositionForRoverOnPlateauAcceptsAPositionWithinTheTestGrid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.testThatTheChooseAValidStartingPositionForRoverOnPlateauAcceptsAPositionWithinTheTestGridAndKeepsAskingTheUserTillTheyEnterAValidPosition.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.testThatTheChooseAValidStartingPositionForRoverOnPlateauReturnsNullWhenThePassedPlateauSizeIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.testThatTheMoveTheRoverAgainMethodReturnsFalseWhenUserEntersAnyOtherCharacterThanQ.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.testThatTheMoveTheRoverAgainMethodReturnsTrueWhenUserEntersQIgnoreCase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.testThatTheMoveTheRoverAgainMethodReturnsTrueWhenUserEntersQIgnoreCaseAsFirstCharacter.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserTest.testThatTheSupplyMovementInstructionsForTheRoverMethodOnlyAcceptsValidInstructionsFromUserAndReturnsThemAsACharArray.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in TheMarsRover.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.marsroverproject in TheMarsRover.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -70,19 +127,22 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.northcoders.marsroverproject" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.northcoders.marsroverproject" />
       <recent name="org.northcoders.io" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.java in TheMarsRover">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.Main" />
       <module name="TheMarsRover" />
@@ -96,7 +156,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PositionTest.changePositionOnGrid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfAsteroidPositionIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TheMarsRover" />
       <extension name="coverage">
         <pattern>
@@ -105,17 +165,60 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
-      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.PositionTest" />
-      <option name="METHOD_NAME" value="changePositionOnGrid" />
+      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.GameTest" />
+      <option name="METHOD_NAME" value="testThatTheGenerateLiveGamePlateauMethodReturnsNullIfAsteroidPositionIsNull" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainARoverIfItIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TheMarsRover" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.northcoders.marsroverproject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
+      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.GameTest" />
+      <option name="METHOD_NAME" value="testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainARoverIfItIsNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainAnAsteroidIfItIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TheMarsRover" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.northcoders.marsroverproject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
+      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.GameTest" />
+      <option name="METHOD_NAME" value="testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainAnAsteroidIfItIsNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in TheMarsRover" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TheMarsRover" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in TheMarsRover" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.PositionTest.changePositionOnGrid" />
+        <item itemvalue="JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainAnAsteroidIfItIsNull" />
+        <item itemvalue="JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainARoverIfItIsNull" />
+        <item itemvalue="JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfAsteroidPositionIsNull" />
       </list>
     </recent_temporary>
   </component>

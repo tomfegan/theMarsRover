@@ -1,8 +1,9 @@
 package org.northcoders.marsroverproject;
 
 public record PlateauSize(int rows, int columns) {
-    /* Grid size is final and using a record (instead of a class) enforces its immutability (e.g., no setters)
-    and reduces boilerplate for easier reading and maintenance */
+    /* Plateau size is final and using a record (instead of a class) enforces its
+    immutability (e.g., no setters) and reduces boilerplate for easier reading
+    and maintenance */
 
     @Override
     public String toString() {
