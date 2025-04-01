@@ -88,7 +88,7 @@ public class User {
             case "s" -> Direction.SOUTH;
             case "w" -> Direction.WEST;
             case "e" -> Direction.EAST;
-            default -> null; // null will never be returned as the while loop means thh switch condition can only be "n", "s", "e" or "w"
+            default -> null; // null will never be returned as the while loop means the switch condition can only be "n", "s", "e" or "w"
         };
     }
     private int checkXCoordinateIsWithinPlateau(PlateauSize plateau, int coordinate) {

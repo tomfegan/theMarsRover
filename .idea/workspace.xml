@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48f4c63a-cf6d-49ce-9d70-0d8490412888" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Asteroid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/AsteroidTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/io/UserInputValidation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/PlateauSize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/PlateauSize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Rover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Rover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/io/UserInputValidationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/PositionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/PositionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/RoverTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +131,7 @@
       <recent name="org.northcoders.io" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in TheMarsRover">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.Main" />
       <module name="TheMarsRover" />
@@ -214,8 +203,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in TheMarsRover" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.java in TheMarsRover" />
         <item itemvalue="JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainAnAsteroidIfItIsNull" />
         <item itemvalue="JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainARoverIfItIsNull" />
         <item itemvalue="JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfAsteroidPositionIsNull" />

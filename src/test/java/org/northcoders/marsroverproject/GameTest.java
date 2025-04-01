@@ -75,7 +75,7 @@ class GameTest {
 
     @Test
     @DisplayName("(3) Method being tested = didAsteroidHitRover()")
-    void testThatTheDidAsteroidHitRoverMethodReturnsFalseWhenTheAsteroidIsNull() {
+    void testThatTheDidAsteroidHitRoverMethodReturnsFalseWhenTheAsteroidPositionIsNull() {
         /* The Asteroid position is null in this test because the constructor does not
         initialise it and setPosition() has not been called */
 
@@ -88,7 +88,7 @@ class GameTest {
 
     @Test
     @DisplayName("(4) Method being tested = didAsteroidHitRover()")
-    void testThatTheDidAsteroidHitRoverMethodReturnsFalseWhenTheRoverIsNull() {
+    void testThatTheDidAsteroidHitRoverMethodReturnsFalseWhenTheRoverPositionIsNull() {
         // Arrange - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         Game testGame = new Game(testUser, testAsteroid);
         testUser.getRover().setPosition(null);
@@ -164,7 +164,7 @@ class GameTest {
 
     @Test
     @DisplayName("(4) Method being tested = generateLiveGamePlateau()")
-    void testThatTheGenerateLiveGamePlateauMethodReturnsAnAsteroidAndAUpwardsArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingNorth() {
+    void testThatTheGenerateLiveGamePlateauMethodReturnsAnAsteroidAndAnUpArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingNorth() {
         // Arrange 1 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         Game testGame = new Game(testUser, testAsteroid);
         when(mockScanner.nextLine()).thenReturn("5").thenReturn("4");
@@ -180,7 +180,7 @@ class GameTest {
 
     @Test
     @DisplayName("(5) Method being tested = generateLiveGamePlateau()")
-    void testThatTheGenerateLiveGamePlateauMethodReturnsAnAsteroidAndAUpwardsArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingSouth() {
+    void testThatTheGenerateLiveGamePlateauMethodReturnsAnAsteroidAndADownArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingSouth() {
         // Arrange 1 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         Game testGame = new Game(testUser, testAsteroid);
         when(mockScanner.nextLine()).thenReturn("5").thenReturn("4");
@@ -196,7 +196,7 @@ class GameTest {
 
     @Test
     @DisplayName("(6) Method being tested = generateLiveGamePlateau()")
-    void testThatTheGenerateLiveGamePlateauMethodReturnsAnAsteroidAndAUpwardsArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingWest() {
+    void testThatTheGenerateLiveGamePlateauMethodReturnsAnAsteroidAndALeftArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingWest() {
         // Arrange 1 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         Game testGame = new Game(testUser, testAsteroid);
         when(mockScanner.nextLine()).thenReturn("8").thenReturn("4"); // 8 = rows (y) and 4 = columns (x)
@@ -212,7 +212,7 @@ class GameTest {
 
     @Test
     @DisplayName("(7) Method being tested = generateLiveGamePlateau()")
-    void testThatTheGenerateLiveGamePlateauMethodReturnsAnAsteroidAndAUpwardsArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingEast() {
+    void testThatTheGenerateLiveGamePlateauMethodReturnsAnAsteroidAndARightArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingEast() {
         // Arrange 1 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         Game testGame = new Game(testUser, testAsteroid);
         when(mockScanner.nextLine()).thenReturn("3").thenReturn("6"); // 3 = rows (y) and 6 = columns (x)

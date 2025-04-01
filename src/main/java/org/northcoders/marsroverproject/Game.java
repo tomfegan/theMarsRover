@@ -29,7 +29,7 @@ public class Game {
             isRoverOnBoundary();
             // Assign a random position within the plateau to the asteroid
             asteroid.assignRandomPositionWithinPlateauForAsteroid(plateau);
-            // Print Rover's new position on the plateau to help user choose their next move
+            // Print Rover's new position and asteroid on the plateau to help user choose their next move
             printPlateauOut(generateLiveGamePlateau());
 
             if (didAsteroidHitRover()) {
@@ -48,7 +48,7 @@ public class Game {
 
     /*tested*/
     public String[][] generateLiveGamePlateau() {
-        String[][] board = new String[plateau.rows() + 1][plateau.columns() + 1];
+        String[][] gamePlateau = new String[plateau.rows() + 1][plateau.columns() + 1];
 
         for (int i = 0; i <= plateau.rows(); i++) { // i relates to y value
             for (int j = 0; j <= plateau.columns(); j++) { // j relates to x value
@@ -58,23 +58,23 @@ public class Game {
                         j == asteroid.getPosition().getX() &&
                         i == asteroid.getPosition().getY()) {
 
-                    board[i][j] = " ❌";
+                    gamePlateau[i][j] = " ❌";
 
                 } else if (user.getRover().getPosition() != null && j == user.getRover().getPosition().getX() && i == user.getRover().getPosition().getY()) {
                     switch (user.getRover().getPosition().getFacing()) {
-                        case Direction.NORTH -> board[i][j] = " △ ";
-                        case Direction.EAST -> board[i][j] = " ▷ ";
-                        case Direction.SOUTH -> board[i][j] = " ▽ ";
-                        case Direction.WEST -> board[i][j] = " ◁ ";
+                        case Direction.NORTH -> gamePlateau[i][j] = " △ ";
+                        case Direction.EAST -> gamePlateau[i][j] = " ▷ ";
+                        case Direction.SOUTH -> gamePlateau[i][j] = " ▽ ";
+                        case Direction.WEST -> gamePlateau[i][j] = " ◁ ";
                     }
                 } else if (asteroid.getPosition() != null && j == asteroid.getPosition().getX() && i == asteroid.getPosition().getY()) {
-                    board[i][j] = " ☄ ";
+                    gamePlateau[i][j] = " ☄ ";
                 } else {
-                    board[i][j] = " ◦ ";
+                    gamePlateau[i][j] = " ◦ ";
                 }
             }
         }
-        return board;
+        return gamePlateau;
     }
 
     public void printPlateauOut(String[][] plateauArray) {
