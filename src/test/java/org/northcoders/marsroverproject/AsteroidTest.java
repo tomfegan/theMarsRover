@@ -19,7 +19,7 @@ class AsteroidTest {
     Random mockedRandom;
 
     @InjectMocks
-    Asteroid testAsteroid;
+    Asteroid testAsteroid = new Asteroid(AsteroidSize.MEDIUM);
 
     @Test
     @DisplayName("(1) Method being tested = assignRandomPositionWithinPlateauForAsteroid")

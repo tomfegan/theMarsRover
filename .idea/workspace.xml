@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="48f4c63a-cf6d-49ce-9d70-0d8490412888" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Asteroid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/UserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/AsteroidTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/AsteroidTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +55,7 @@
     "Application.Main.executor": "Run",
     "JUnit.AsteroidTest.assignRandomPositionWithinPlateauForAsteroid.executor": "Run",
     "JUnit.AsteroidTest.executor": "Run",
+    "JUnit.AsteroidTest.testThatTheAssignRandomPositionWithinPlateauForAsteroidMethodSetsARandomPositionForAsteroidInstance.executor": "Run",
     "JUnit.GameTest.didAsteroidHitRover.executor": "Run",
     "JUnit.GameTest.executor": "Run",
     "JUnit.GameTest.generateLiveGameBoard.executor": "Run",
@@ -135,7 +132,7 @@
       <recent name="org.northcoders.io" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in TheMarsRover">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.Main" />
       <module name="TheMarsRover" />
@@ -145,6 +142,22 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AsteroidTest.testThatTheAssignRandomPositionWithinPlateauForAsteroidMethodSetsARandomPositionForAsteroidInstance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TheMarsRover" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.northcoders.marsroverproject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
+      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.AsteroidTest" />
+      <option name="METHOD_NAME" value="testThatTheAssignRandomPositionWithinPlateauForAsteroidMethodSetsARandomPositionForAsteroidInstance" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -180,21 +193,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TheMarsRover" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.northcoders.marsroverproject.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
-      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.UserTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="java in TheMarsRover" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TheMarsRover" />
       <option name="TEST_OBJECT" value="directory" />
@@ -205,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.java in TheMarsRover" />
+        <item itemvalue="JUnit.AsteroidTest.testThatTheAssignRandomPositionWithinPlateauForAsteroidMethodSetsARandomPositionForAsteroidInstance" />
         <item itemvalue="JUnit.GameTest" />
         <item itemvalue="JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.UserTest" />
       </list>
     </recent_temporary>
   </component>
