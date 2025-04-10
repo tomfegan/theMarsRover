@@ -8,8 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Asteroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/UserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +77,7 @@
     "JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfPlateauSizeIsNull.executor": "Run",
     "JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfPlateauSizeOfDotsIfUserAndAsteroidAreNull.executor": "Run",
     "JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfRoverPositionIsNull.executor": "Run",
+    "JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau.executor": "Run",
     "JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsFalseWhenThePlateauSizeIsNull.executor": "Run",
     "JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsFalseWhenTheRoverIsNotPositionedOnThePlateauPerimeter.executor": "Run",
     "JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsFalseWhenTheRoverOrPlateauAreNull.executor": "Run",
@@ -133,7 +135,7 @@
       <recent name="org.northcoders.io" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.java in TheMarsRover">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.Main" />
       <module name="TheMarsRover" />
@@ -147,7 +149,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.testThatTheDidAsteroidHitRoverMethodReturnsTrueWhenTheRoverAndAsteroidShareTheSameXYPosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TheMarsRover" />
       <extension name="coverage">
         <pattern>
@@ -157,13 +159,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
       <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.GameTest" />
-      <option name="METHOD_NAME" value="testThatTheDidAsteroidHitRoverMethodReturnsTrueWhenTheRoverAndAsteroidShareTheSameXYPosition" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TheMarsRover" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.northcoders.marsroverproject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
+      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.GameTest" />
+      <option name="METHOD_NAME" value="testThatTheGenerateLiveGamePlateauMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotOnlyContainXsWhenAsteroidSizeIsNotPlanetDestroyer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TheMarsRover" />
       <extension name="coverage">
         <pattern>
@@ -172,25 +189,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
-      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.GameTest" />
-      <option name="METHOD_NAME" value="testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotOnlyContainXsWhenAsteroidSizeIsNotPlanetDestroyer" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodOnlyContainsXWhenAsteroidSizeIsPlanetDestroyer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TheMarsRover" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.northcoders.marsroverproject.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
-      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.GameTest" />
-      <option name="METHOD_NAME" value="testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodOnlyContainsXWhenAsteroidSizeIsPlanetDestroyer" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.UserTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,11 +205,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.java in TheMarsRover" />
-        <item itemvalue="JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodOnlyContainsXWhenAsteroidSizeIsPlanetDestroyer" />
-        <item itemvalue="JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotOnlyContainXsWhenAsteroidSizeIsNotPlanetDestroyer" />
-        <item itemvalue="JUnit.GameTest.testThatTheDidAsteroidHitRoverMethodReturnsTrueWhenTheRoverAndAsteroidShareTheSameXYPosition" />
+        <item itemvalue="JUnit.GameTest" />
+        <item itemvalue="JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.UserTest" />
       </list>
     </recent_temporary>
   </component>

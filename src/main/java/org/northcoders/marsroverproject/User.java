@@ -125,6 +125,6 @@ public class User {
     /*tested*/public boolean moveTheRoverAgain() {
         System.out.println("Press Q to quit the application or any other key to make another move");
         String action = sc.next().substring(0, 1).toLowerCase();
-        return action.equals("q");
+        return !action.equals("q");
     }
 }

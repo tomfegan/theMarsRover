@@ -16,13 +16,10 @@ public class Game {
         gameNumber = 0;
     }
 
-    public List<Asteroid> getAsteroids() {
-        return asteroids;
-    }
-
     public void addAsteroidToList(Asteroid asteroid) {
         asteroids.add(asteroid);
     }
+
     public void playGame() {
         // Welcome user to the game
         System.out.printf("Welcome %s%n", user.getName());
@@ -48,25 +45,28 @@ public class Game {
             if (asteroids.get(gameNumber).getSize().equals(AsteroidSize.PLANET_DESTROYER)) {
                 System.out.printf("GAME OVER %s! A %s asteroid destroyed Mars and your Rover, along with everything else, is floating through time and space. %s scored %d%n",
                         user.getName().toUpperCase(), asteroids.get(gameNumber).getSize(), user.getName(), user.getScore());
+                printPlateauOut(generateLiveGamePlateau());
                 break;
             } else if (didAsteroidHitRover()) {
                 System.out.printf("GAME OVER %s! A %s asteroid hit your Rover at %d,%d and it is damaged beyond repair. %s scored %d%n",
                         user.getName().toUpperCase(), asteroids.get(gameNumber).getSize(), asteroids.get(gameNumber).getPosition().getX(), asteroids.get(gameNumber).getPosition().getY(), user.getName(), user.getScore());
+                printPlateauOut(generateLiveGamePlateau());
                 break;
             } else {
                 user.setScore(10);
                 System.out.printf("WARNING FOR %s: a %s asteroid hit the plateau at %d,%d and fortunately missed your Rover. The plateau has been cleaned up and you're free to continue. Your score is %d%n",
                         user.getName().toUpperCase(), asteroids.get(gameNumber).getSize(), asteroids.get(gameNumber).getPosition().getX(), asteroids.get(gameNumber).getPosition().getY(), user.getScore());
-
+                // Print Rover's new position and asteroid on the plateau to help user choose their next move
+                printPlateauOut(generateLiveGamePlateau());
+                gameNumber++;
             }
-            // Print Rover's new position and asteroid on the plateau to help user choose their next move
-            printPlateauOut(generateLiveGamePlateau());
-            gameNumber++;
 
-        } while (!user.moveTheRoverAgain());
-        // Print final game plateau state and thank player and give their final score
-        printPlateauOut(generateLiveGamePlateau());
+        } while (user.moveTheRoverAgain());
+        // Thank player and give their final score along with a list of asteroids
         System.out.printf("Thank you %s for playing. You scored %d%n", user.getName(), user.getScore());
+        for (int i = 0; i < asteroids.size(); i++) {
+            System.out.printf("Asteroid %d: %s", i + 1, asteroids.get(i).toString());
+        }
     }
 
     /*tested*/

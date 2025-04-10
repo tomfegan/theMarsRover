@@ -22,7 +22,7 @@ class GameTest {
     Scanner mockScanner;
 
     @InjectMocks
-    Asteroid testAsteroid;
+    Asteroid testAsteroid = new Asteroid(AsteroidSize.MEDIUM);
     @InjectMocks
     User testUser;
 
@@ -173,8 +173,8 @@ class GameTest {
         when(mockScanner.nextLine()).thenReturn("3").thenReturn("4");
         testGame.setPlateau(testUser.specifyPlateauSize());
         testUser.getRover().setPosition(new Position(1,2,Direction.NORTH));
-        testGame.addAsteroidToList(testAsteroid);
         testAsteroid.setPosition(new Position(1,2));
+        testGame.addAsteroidToList(testAsteroid);
         // Act 1
         String[][] result = testGame.generateLiveGamePlateau();
         // Assert 1
@@ -308,8 +308,7 @@ class GameTest {
 
 
         // Arrange 2 - medium asteroid
-        Asteroid testMediumAsteroid = new Asteroid(AsteroidSize.MEDIUM);
-        testGame.addAsteroidToList(testMediumAsteroid);
+        testGame.addAsteroidToList(testAsteroid);
         // Act 2 - medium asteroid
         String[][] resultForMediumAsteroid = testGame.generateLiveGamePlateau();
         boolean doesPlateauOnlyContainCrossesWhenAsteroidIsMedium = false;

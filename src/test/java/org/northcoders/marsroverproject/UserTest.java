@@ -40,49 +40,49 @@ class UserTest {
     }
     @Test
     @DisplayName("(1) Method being tested = moveTheRoverAgain()")
-    void testThatTheMoveTheRoverAgainMethodReturnsTrueWhenUserEntersQIgnoreCaseAsFirstCharacter() {
+    void testThatTheMoveTheRoverAgainMethodReturnsFalseWhenUserEntersQIgnoreCaseAsFirstCharacter() {
         // Arrange 1 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         when(mockScanner.next()).thenReturn("q");
         // Act and Assert 1
-        Assertions.assertTrue(testUser.moveTheRoverAgain());
+        Assertions.assertFalse(testUser.moveTheRoverAgain());
 
         // Arrange 2 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         when(mockScanner.next()).thenReturn("Q");
         // Act and Assert 2
-        Assertions.assertTrue(testUser.moveTheRoverAgain());
+        Assertions.assertFalse(testUser.moveTheRoverAgain());
 
         // Arrange 3 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         when(mockScanner.next()).thenReturn("quit");
         // Act and Assert 3
-        Assertions.assertTrue(testUser.moveTheRoverAgain());
+        Assertions.assertFalse(testUser.moveTheRoverAgain());
 
         // Arrange 4 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         when(mockScanner.next()).thenReturn("Quit");
         // Act and Assert 4
-        Assertions.assertTrue(testUser.moveTheRoverAgain());
+        Assertions.assertFalse(testUser.moveTheRoverAgain());
     }
     @Test
     @DisplayName("(2) Method being tested = moveTheRoverAgain()")
-    void testThatTheMoveTheRoverAgainMethodReturnsFalseWhenUserEntersAnyOtherCharacterThanQ() {
+    void testThatTheMoveTheRoverAgainMethodReturnsTrueWhenUserEntersAnyOtherCharacterThanQ() {
         // Arrange 1 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         when(mockScanner.next()).thenReturn("@");
         // Act and Assert 1
-        Assertions.assertFalse(testUser.moveTheRoverAgain());
+        Assertions.assertTrue(testUser.moveTheRoverAgain());
 
         // Arrange 2 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         when(mockScanner.next()).thenReturn("adasdcdsa");
         // Act and Assert 2
-        Assertions.assertFalse(testUser.moveTheRoverAgain());
+        Assertions.assertTrue(testUser.moveTheRoverAgain());
 
         // Arrange 3 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         when(mockScanner.next()).thenReturn("1234");
         // Act and Assert 3
-        Assertions.assertFalse(testUser.moveTheRoverAgain());
+        Assertions.assertTrue(testUser.moveTheRoverAgain());
 
         // Arrange 4 - @ExtendWith(MockitoExtension.class), @Mock and @InjectMocks
         when(mockScanner.next()).thenReturn("-77");
         // Act and Assert 4
-        Assertions.assertFalse(testUser.moveTheRoverAgain());
+        Assertions.assertTrue(testUser.moveTheRoverAgain());
     }
     @Test
     @DisplayName("(1) Method being tested = supplyMovementInstructionsForTheRover()")

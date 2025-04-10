@@ -45,6 +45,12 @@ public class Asteroid {
         int y = random.nextInt(gamePlateau.rows() + 1);
         this.position = new Position(x, y);
     }
+
+    @Override
+    public String toString() {
+        return "%s%n".formatted(size);
+    }
+
     // getters
     public Position getPosition() {
         return position;
