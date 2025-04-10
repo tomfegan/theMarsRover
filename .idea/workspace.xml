@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="48f4c63a-cf6d-49ce-9d70-0d8490412888" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/AsteroidTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/AsteroidTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/northcoders/marsroverproject/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/northcoders/marsroverproject/GameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +71,11 @@
     "JUnit.GameTest.testThatTheGenerateLiveGameBoardMethodReturnsDotsWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateau.executor": "Run",
     "JUnit.GameTest.testThatTheGenerateLiveGameBoardMethodReturnsNullIfPlateauSizeIsNull.executor": "Run",
     "JUnit.GameTest.testThatTheGenerateLiveGameBoardMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau.executor": "Run",
+    "JUnit.GameTest.testThatTheGenerateLiveGamePlateauAsStringBuilderMethodReturnsAnAsteroidAndADownArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingSouth.executor": "Run",
+    "JUnit.GameTest.testThatTheGenerateLiveGamePlateauAsStringBuilderMethodReturnsAnAsteroidAndALeftArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingWest.executor": "Run",
+    "JUnit.GameTest.testThatTheGenerateLiveGamePlateauAsStringBuilderMethodReturnsAnAsteroidAndARightArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingEast.executor": "Run",
+    "JUnit.GameTest.testThatTheGenerateLiveGamePlateauAsStringBuilderMethodReturnsAnAsteroidAndAnUpArrowWhenRoverAndAsteroidOccupyDifferentPositionsOnThePlateauAndRoverIsFacingNorth.executor": "Run",
+    "JUnit.GameTest.testThatTheGenerateLiveGamePlateauAsStringBuilderMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau.executor": "Run",
     "JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfAsteroidPositionIsNull.executor": "Run",
     "JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfPlateauSizeIsNull.executor": "Run",
     "JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsNullIfPlateauSizeOfDotsIfUserAndAsteroidAreNull.executor": "Run",
@@ -80,7 +86,12 @@
     "JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsFalseWhenTheRoverOrPlateauAreNull.executor": "Run",
     "JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsFalseWhenTheRoverPositionIsNull.executor": "Run",
     "JUnit.GameTest.testThatTheIsRoverOnBoundaryMethodReturnsTrueWhenTheRoverIsPositionedOnThePlateauPerimeter.executor": "Run",
+    "JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodDoesNotContainARoverIfItsPositionIsNull.executor": "Run",
+    "JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodDoesNotContainAnAsteroidIfItsPositionIsNull.executor": "Run",
+    "JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodDoesNotOnlyContainXsWhenAsteroidSizeIsNotPlanetDestroyer.executor": "Run",
+    "JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodOnlyContainsXWhenAsteroidSizeIsPlanetDestroyer.executor": "Run",
     "JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainARoverIfItIsNull.executor": "Run",
+    "JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainARoverIfItsPositionIsNull.executor": "Run",
     "JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotContainAnAsteroidIfItIsNull.executor": "Run",
     "JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodDoesNotOnlyContainXsWhenAsteroidSizeIsNotPlanetDestroyer.executor": "Run",
     "JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauMethodOnlyContainsXWhenAsteroidSizeIsPlanetDestroyer.executor": "Run",
@@ -162,7 +173,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodDoesNotOnlyContainXsWhenAsteroidSizeIsNotPlanetDestroyer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TheMarsRover" />
       <extension name="coverage">
         <pattern>
@@ -172,12 +183,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
       <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.GameTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodDoesNotOnlyContainXsWhenAsteroidSizeIsNotPlanetDestroyer" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodOnlyContainsXWhenAsteroidSizeIsPlanetDestroyer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TheMarsRover" />
       <extension name="coverage">
         <pattern>
@@ -187,7 +199,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.northcoders.marsroverproject" />
       <option name="MAIN_CLASS_NAME" value="org.northcoders.marsroverproject.GameTest" />
-      <option name="METHOD_NAME" value="testThatTheGenerateLiveGamePlateauMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau" />
+      <option name="METHOD_NAME" value="testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodOnlyContainsXWhenAsteroidSizeIsPlanetDestroyer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -206,8 +218,8 @@
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.java in TheMarsRover" />
         <item itemvalue="JUnit.AsteroidTest.testThatTheAssignRandomPositionWithinPlateauForAsteroidMethodSetsARandomPositionForAsteroidInstance" />
-        <item itemvalue="JUnit.GameTest" />
-        <item itemvalue="JUnit.GameTest.testThatTheGenerateLiveGamePlateauMethodReturnsRedCrossWhenRoverAndAsteroidShareTheSamePositionOnThePlateau" />
+        <item itemvalue="JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodDoesNotOnlyContainXsWhenAsteroidSizeIsNotPlanetDestroyer" />
+        <item itemvalue="JUnit.GameTest.testThatThePlateauReturnedByTheGenerateLiveGamePlateauAsStringBuilderMethodOnlyContainsXWhenAsteroidSizeIsPlanetDestroyer" />
       </list>
     </recent_temporary>
   </component>

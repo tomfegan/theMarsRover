@@ -29,8 +29,8 @@ public class Game {
         user.getRover().setPosition(user.chooseAValidStartingPositionForRoverOnPlateau(plateau));
         // Check if Rover is on boundary of plateau to warn player
         isRoverOnBoundary();
-        // Generate the plateau with the Rover's starting position and print it out without square brackets and commas
-        printPlateauOut(generateLiveGamePlateau());
+        // Generate and print the plateau with the Rover's starting position
+        printPlateauOutFromStringBuilder(generateLiveGamePlateauAsStringBuilder());
         do {
             // User supplies directions and the Rover is moved accordingly
             user.getRover().getPosition().changePositionOnPlateau(user.supplyMovementInstructionsForTheRover(),
@@ -45,22 +45,21 @@ public class Game {
             if (asteroids.get(gameNumber).getSize().equals(AsteroidSize.PLANET_DESTROYER)) {
                 System.out.printf("GAME OVER %s! A %s asteroid destroyed Mars and your Rover, along with everything else, is floating through time and space. %s scored %d%n",
                         user.getName().toUpperCase(), asteroids.get(gameNumber).getSize(), user.getName(), user.getScore());
-                printPlateauOut(generateLiveGamePlateau());
+                printPlateauOutFromStringBuilder(generateLiveGamePlateauAsStringBuilder());
                 break;
             } else if (didAsteroidHitRover()) {
                 System.out.printf("GAME OVER %s! A %s asteroid hit your Rover at %d,%d and it is damaged beyond repair. %s scored %d%n",
                         user.getName().toUpperCase(), asteroids.get(gameNumber).getSize(), asteroids.get(gameNumber).getPosition().getX(), asteroids.get(gameNumber).getPosition().getY(), user.getName(), user.getScore());
-                printPlateauOut(generateLiveGamePlateau());
+                printPlateauOutFromStringBuilder(generateLiveGamePlateauAsStringBuilder());
                 break;
             } else {
                 user.setScore(10);
                 System.out.printf("WARNING FOR %s: a %s asteroid hit the plateau at %d,%d and fortunately missed your Rover. The plateau has been cleaned up and you're free to continue. Your score is %d%n",
                         user.getName().toUpperCase(), asteroids.get(gameNumber).getSize(), asteroids.get(gameNumber).getPosition().getX(), asteroids.get(gameNumber).getPosition().getY(), user.getScore());
                 // Print Rover's new position and asteroid on the plateau to help user choose their next move
-                printPlateauOut(generateLiveGamePlateau());
+                printPlateauOutFromStringBuilder(generateLiveGamePlateauAsStringBuilder());
                 gameNumber++;
             }
-
         } while (user.moveTheRoverAgain());
         // Thank player and give their final score along with a list of asteroids
         System.out.printf("Thank you %s for playing. You scored %d%n", user.getName(), user.getScore());
@@ -69,56 +68,48 @@ public class Game {
         }
     }
 
-    /*tested*/
-    public String[][] generateLiveGamePlateau() {
-        String[][] gamePlateau = new String[plateau.rows() + 1][plateau.columns() + 1];
+    /*tested*/public StringBuilder[] generateLiveGamePlateauAsStringBuilder() {
+        StringBuilder[] gamePlateau = new StringBuilder[plateau.rows() + 1];
 
         for (int i = 0; i <= plateau.rows(); i++) { // i relates to y value
+            StringBuilder arrayRow = new StringBuilder();
             for (int j = 0; j <= plateau.columns(); j++) { // j relates to x value
+                gamePlateau[i] = arrayRow;
                 if (!asteroids.isEmpty() && asteroids.get(gameNumber).getSize().equals(AsteroidSize.PLANET_DESTROYER)) {
-                    gamePlateau[i][j] = " ❌";
+                    arrayRow.append("❌");
                 } else if (!asteroids.isEmpty() && user.getRover().getPosition() != null && asteroids.get(gameNumber).getPosition() != null &&
                         j == user.getRover().getPosition().getX() &&
                         i == user.getRover().getPosition().getY() &&
                         j == asteroids.get(gameNumber).getPosition().getX() &&
                         i == asteroids.get(gameNumber).getPosition().getY()) {
 
-                    gamePlateau[i][j] = " ❌";
+                    arrayRow.append("❌");
 
                 } else if (user.getRover().getPosition() != null && j == user.getRover().getPosition().getX() && i == user.getRover().getPosition().getY()) {
                     switch (user.getRover().getPosition().getFacing()) {
-                        case Direction.NORTH -> gamePlateau[i][j] = " △ ";
-                        case Direction.EAST -> gamePlateau[i][j] = " ▷ ";
-                        case Direction.SOUTH -> gamePlateau[i][j] = " ▽ ";
-                        case Direction.WEST -> gamePlateau[i][j] = " ◁ ";
+                        case Direction.NORTH -> arrayRow.append("△");
+                        case Direction.EAST -> arrayRow.append("▷");
+                        case Direction.SOUTH -> arrayRow.append("▽");
+                        case Direction.WEST -> arrayRow.append("◁");
                     }
                 } else if (!asteroids.isEmpty() && asteroids.get(gameNumber).getPosition() != null && j == asteroids.get(gameNumber).getPosition().getX() && i == asteroids.get(gameNumber).getPosition().getY()) {
-                    gamePlateau[i][j] = " ☄ ";
+                    arrayRow.append("☄");
                 } else {
-                    gamePlateau[i][j] = " ◦ ";
+                    arrayRow.append("◦");
                 }
             }
         }
         return gamePlateau;
     }
 
-    public void printPlateauOut(String[][] plateauArray) {
-        for (int y = plateau.rows(); y >= 0; y--) {
-            for (int x = 0; x <= plateau.columns(); x++) {
-                if (x == plateau.columns()) {
-                    System.out.print(" " + plateauArray[y][x] + " ");
-                    System.out.println();
-                } else {
-                    System.out.print(" " + plateauArray[y][x] + " ");
-                }
-            }
+    public void printPlateauOutFromStringBuilder(StringBuilder[] plateauArray) {
+        for (int x = plateau.rows(); x >= 0; x--) {
+            System.out.print(" " + plateauArray[x] + " ");
+            System.out.println();
         }
-        System.out.println();
-
     }
 
-    /*tested*/
-    public boolean didAsteroidHitRover() {
+    /*tested*/public boolean didAsteroidHitRover() {
         if (asteroids.isEmpty()) {
             System.out.println("There are no asteroids so the Rover has not been hit");
             return false;
