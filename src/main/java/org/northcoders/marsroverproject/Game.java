@@ -1,15 +1,28 @@
 package org.northcoders.marsroverproject;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class Game {
     private PlateauSize plateau;
     private final User user;
-    private Asteroid asteroid;
+    private List<Asteroid> asteroids;
+    private int gameNumber;
 
-    public Game(User user, Asteroid asteroid) {
+    public Game(User user) {
         this.user = user;
-        this.asteroid = asteroid;
+        asteroids = new ArrayList<>(20);
+        gameNumber = 0;
     }
 
+    public List<Asteroid> getAsteroids() {
+        return asteroids;
+    }
+
+    public void addAsteroidToList(Asteroid asteroid) {
+        asteroids.add(asteroid);
+    }
     public void playGame() {
         // Welcome user to the game
         System.out.printf("Welcome %s%n", user.getName());
@@ -27,22 +40,32 @@ public class Game {
                     plateau);
             // Check if Rover is on boundary of plateau to warn player
             isRoverOnBoundary();
-            // Assign a random position within the plateau to the asteroid
-            asteroid.assignRandomPositionWithinPlateauForAsteroid(plateau);
-            // Print Rover's new position and asteroid on the plateau to help user choose their next move
-            printPlateauOut(generateLiveGamePlateau());
+            // Create a new asteroid with a random size and randomly assign its position within the plateau-add the asteroid to asteroids list
+            Asteroid newAsteroid = new Asteroid(new Random());
+            addAsteroidToList(newAsteroid);
+            asteroids.get(gameNumber).assignRandomPositionWithinPlateauForAsteroid(plateau);
 
-            if (didAsteroidHitRover()) {
+            if (asteroids.get(gameNumber).getSize().equals(AsteroidSize.PLANET_DESTROYER)) {
+                System.out.printf("GAME OVER %s! A %s asteroid destroyed Mars and your Rover, along with everything else, is floating through time and space. %s scored %d%n",
+                        user.getName().toUpperCase(), asteroids.get(gameNumber).getSize(), user.getName(), user.getScore());
+                break;
+            } else if (didAsteroidHitRover()) {
                 System.out.printf("GAME OVER %s! A %s asteroid hit your Rover at %d,%d and it is damaged beyond repair. %s scored %d%n",
-                        user.getName().toUpperCase(), asteroid.getSize(), asteroid.getPosition().getX(), asteroid.getPosition().getY(), user.getName(), user.getScore());
+                        user.getName().toUpperCase(), asteroids.get(gameNumber).getSize(), asteroids.get(gameNumber).getPosition().getX(), asteroids.get(gameNumber).getPosition().getY(), user.getName(), user.getScore());
                 break;
             } else {
                 user.setScore(10);
                 System.out.printf("WARNING FOR %s: a %s asteroid hit the plateau at %d,%d and fortunately missed your Rover. The plateau has been cleaned up and you're free to continue. Your score is %d%n",
-                        user.getName().toUpperCase(), asteroid.getSize(), asteroid.getPosition().getX(), asteroid.getPosition().getY(), user.getScore());
-            }
-        } while (!user.moveTheRoverAgain());
+                        user.getName().toUpperCase(), asteroids.get(gameNumber).getSize(), asteroids.get(gameNumber).getPosition().getX(), asteroids.get(gameNumber).getPosition().getY(), user.getScore());
 
+            }
+            // Print Rover's new position and asteroid on the plateau to help user choose their next move
+            printPlateauOut(generateLiveGamePlateau());
+            gameNumber++;
+
+        } while (!user.moveTheRoverAgain());
+        // Print final game plateau state and thank player and give their final score
+        printPlateauOut(generateLiveGamePlateau());
         System.out.printf("Thank you %s for playing. You scored %d%n", user.getName(), user.getScore());
     }
 
@@ -52,11 +75,13 @@ public class Game {
 
         for (int i = 0; i <= plateau.rows(); i++) { // i relates to y value
             for (int j = 0; j <= plateau.columns(); j++) { // j relates to x value
-                if (user.getRover().getPosition() != null && asteroid.getPosition() != null &&
+                if (!asteroids.isEmpty() && asteroids.get(gameNumber).getSize().equals(AsteroidSize.PLANET_DESTROYER)) {
+                    gamePlateau[i][j] = " ❌";
+                } else if (!asteroids.isEmpty() && user.getRover().getPosition() != null && asteroids.get(gameNumber).getPosition() != null &&
                         j == user.getRover().getPosition().getX() &&
                         i == user.getRover().getPosition().getY() &&
-                        j == asteroid.getPosition().getX() &&
-                        i == asteroid.getPosition().getY()) {
+                        j == asteroids.get(gameNumber).getPosition().getX() &&
+                        i == asteroids.get(gameNumber).getPosition().getY()) {
 
                     gamePlateau[i][j] = " ❌";
 
@@ -67,7 +92,7 @@ public class Game {
                         case Direction.SOUTH -> gamePlateau[i][j] = " ▽ ";
                         case Direction.WEST -> gamePlateau[i][j] = " ◁ ";
                     }
-                } else if (asteroid.getPosition() != null && j == asteroid.getPosition().getX() && i == asteroid.getPosition().getY()) {
+                } else if (!asteroids.isEmpty() && asteroids.get(gameNumber).getPosition() != null && j == asteroids.get(gameNumber).getPosition().getX() && i == asteroids.get(gameNumber).getPosition().getY()) {
                     gamePlateau[i][j] = " ☄ ";
                 } else {
                     gamePlateau[i][j] = " ◦ ";
@@ -94,15 +119,18 @@ public class Game {
 
     /*tested*/
     public boolean didAsteroidHitRover() {
-        if (asteroid.getPosition() == null) {
+        if (asteroids.isEmpty()) {
+            System.out.println("There are no asteroids so the Rover has not been hit");
+            return false;
+        } else if (asteroids.get(gameNumber).getPosition() == null) {
             System.out.println("Asteroid position is null");
             return false;
         } else if (user.getRover().getPosition() == null) {
             System.out.println("Rover position is null");
             return false;
         } else {
-            return user.getRover().getPosition().getX() == asteroid.getPosition().getX() &&
-                    user.getRover().getPosition().getY() == asteroid.getPosition().getY();
+            return user.getRover().getPosition().getX() == asteroids.get(gameNumber).getPosition().getX() &&
+                    user.getRover().getPosition().getY() == asteroids.get(gameNumber).getPosition().getY();
         }
     }
 

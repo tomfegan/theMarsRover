@@ -33,6 +33,11 @@ public class Asteroid {
             default -> throw new IllegalStateException("Unexpected value: " + randomInt);  // all AsteroidSize values covered by cases 1-3 so this exception should never be thrown
         };
     }
+
+    public Asteroid(AsteroidSize size) {
+        this.size = size;
+    }
+
     /*tested*/public void assignRandomPositionWithinPlateauForAsteroid(PlateauSize gamePlateau) {
         // the number of columns determines the max X value
         // the number of rows determines the max Y value
